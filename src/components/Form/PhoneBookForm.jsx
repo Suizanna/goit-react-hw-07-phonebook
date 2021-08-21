@@ -1,24 +1,19 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// заменили на contactsOperations
-// import contactsActions from '../../redux/contacts/contactsActions.js';
-// import { getContacts } from "../../redux/contacts/contactsSelectors.";
 import { contactsOperations, contactsSelectors } from '../../redux/contacts';
 import Cleave from 'cleave.js/react';
 import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from "nanoid";
 import s from './PhoneForm.module.css';
 
 
 const PhoneBookForm = () => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+
   const dispatch = useDispatch();
   const contacts = useSelector(contactsSelectors.getContacts);
-   const isLoading = useSelector(contactsSelectors.getLoading);
-  //  const contacts = useSelector(getContacts);
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-  
+  const isLoading = useSelector(contactsSelectors.getLoading);
 
   const nameInputId = nanoid();
   const telInputId = nanoid();
@@ -91,8 +86,6 @@ const PhoneBookForm = () => {
           name="name"
           value={name}
           onChange={handleChange}
-          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          // title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
           placeholder="Ivan Ivanov"
         />
@@ -109,8 +102,6 @@ const PhoneBookForm = () => {
           name="number"
           value={number}
           onChange={handleChange}
-          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          // title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required         
         />
         </label>

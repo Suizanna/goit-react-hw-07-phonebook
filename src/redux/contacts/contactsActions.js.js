@@ -11,6 +11,7 @@ import {
   DELETE_CONTACT_ERROR,
   FILTER_CONTACT,
 } from './contactsTypes';
+
 //синхронные
 export const fetchContactsRequest = createAction(FETCH_CONTACTS_REQUEST);
 export const fetchContactsSuccess = createAction(FETCH_CONTACTS_SUCCESS);

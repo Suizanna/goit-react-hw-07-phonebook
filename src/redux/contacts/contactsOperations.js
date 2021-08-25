@@ -17,7 +17,7 @@ export const fetchContacts = () => dispatch => {
 
   contactsAPI
     .fetchContacts()
-    .then(({ data }) => dispatch(fetchContactsSuccess(data)))
+    .then(data => dispatch(fetchContactsSuccess(data)))
     .catch(error => dispatch(fetchContactsError(error)));
 };
 
@@ -31,7 +31,7 @@ export const addContact = (name, number) => dispatch => {
 
   contactsAPI
     .addContact(contact)
-    .then(({ data }) => dispatch(addContactSuccess(data)))
+    .then(data => dispatch(addContactSuccess(data)))
     .catch(error => dispatch(addContactError(error)));
 };
 

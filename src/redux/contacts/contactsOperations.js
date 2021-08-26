@@ -9,7 +9,7 @@ import {
   deleteContactSuccess,
   deleteContactError,
 } from './contactsActions.js';
-import * as contactsAPI from '../services/contacts-api';
+import * as contactsAPI from '../../services/contacts-api';
 
 //операции это асинхронный createAction
 export const fetchContacts = () => dispatch => {
